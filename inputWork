@@ -1,0 +1,57 @@
+#include <iostream>
+
+using namespace std;
+
+//reprompt string added
+    double inputDouble(double num, string prompt="please try again.") {
+        
+      cout << "enter a double between 0 and 1: ";
+      cin >> num;
+      while (num < 0 || num > 1) {
+        cout << prompt << endl;
+       // inputDouble(num); recursive error
+       cin>>num;
+     
+      }
+
+      cout << endl << "you entered: " << num << endl;
+
+      return num;
+
+    }
+    
+    
+    
+    
+    //reprompt added
+    int inputInt(int i, string prompt="please try again.") {
+      cout << "enter a int between 0 and 10: ";
+      cin >> i;
+      while (i < 0 || i > 10) {
+        cout << prompt<< endl;
+        //inputInt(i); recursive error
+        cin>>i;
+      }
+      cout << endl << "you entered: " << i<<endl;
+
+      return i;
+
+    }
+
+
+
+
+
+
+int main()
+{
+    int n;
+    double d;
+ 
+  inputInt(n);
+  inputDouble(d);
+
+
+    
+    return 0;
+}
