@@ -1,0 +1,19 @@
+#include <iostream>
+#include "upper.h"
+#upper.h is the name of the header file
+
+using namespace std;
+
+// The test function is complete. You do not need to
+// modify this file.
+
+int main()
+{
+    cout << "Enter a phrase: ";
+    string phrase;
+    getline(cin, phrase);
+    
+    cout << "Converted to Uppercase: " << upperCase(phrase) << endl;
+    return 0;
+    
+}
