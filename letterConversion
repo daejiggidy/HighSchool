@@ -1,0 +1,24 @@
+#include <string>
+
+using namespace std;
+
+string upperCase(string phrase){
+int c=0;
+string e;
+//DECLARE ALL VARIABLES BEFORE DOING ANYTHING
+while(c<phrase.size()){
+  char r = toupper(phrase[c]);
+  c++;
+
+  e.push_back(r);
+  
+  r++;
+}
+ return e;
+ 
+
+}
+//return e;
+//return e;
+
+//return e
