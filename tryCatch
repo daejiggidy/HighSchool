@@ -1,0 +1,43 @@
+#include <iostream>
+
+using namespace std;
+string i;
+int main() {
+  bool isValid = false;
+  int num;
+  while (!isValid) {
+    isValid = true;
+    cout << "Enter an age: ";
+
+    string line;
+    getline(cin, i);
+
+    try {
+      num = stoi(i);
+    } catch (invalid_argument) {
+      isValid = false;
+      cout << "try again." << endl;
+    }
+
+    try {
+      if (stoi(i) < 2) {
+        cout << "Too young." << endl;
+      }
+      isValid = false;
+    } catch (invalid_argument) {
+      cout << "try again." << endl;
+    }
+    try {
+      if (stoi(i) > 110) {
+        cout << "You're not that old." << endl;
+      }
+      isValid = false;
+    } catch (invalid_argument) {
+      cout << "try again." << endl;
+    }
+
+    cout << "You're going to be " << stoi(i) + 1 << " next year!" << endl;
+    break;
+  }
+  return 0;
+}
