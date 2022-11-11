@@ -1,0 +1,27 @@
+#include "util.h"
+
+int main() {
+  int guess;
+  int theThing;
+  theThing = randInt(0, 16);
+  guess = readInt(0, 16, "Guess a number between 1 and 15:");
+  
+  while (guess != theThing) {
+
+    if (guess < theThing) {
+        cout<<"Higher!"<<endl;
+      guess = readInt(guess, theThing,"Input: ");
+      
+    }  else if (guess > theThing) {
+        cout<<"Lower!"<<endl;
+      guess = readInt(theThing, guess,"Input: ");
+      
+    }
+    if (guess == theThing) {
+      cout << "WOOHOO YOU GOT IT";
+    }
+
+  }
+
+  return 0;
+}
