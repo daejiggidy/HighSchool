@@ -1,0 +1,123 @@
+#include "util.h"
+
+#include "upper.h"
+
+#include <vector>
+
+
+struct patient{
+string name;
+float temperature;
+};
+
+string n;
+string t;
+ bool isvalid=false;
+vector <patient> patients;
+
+patient a;
+int main() {
+    bool run = false;
+    while(!run){
+    cout<<"enter the name of the patient(e to exit): "<<endl;
+    
+    cin>>n;
+    if(n=="e"){
+         cout<<"The following people that can attend are: "<<endl;
+          for (patient i: patients) {
+             if(i.temperature>=95.0||i.temperature<=106){
+                cout << upperCase(i.name) << endl;
+             }else{}
+            
+           break;
+              
+          }
+       
+        run=true;
+        isvalid=true;
+    }
+    a.name=n;
+    
+    
+  
+    while(!isvalid){
+        cin.ignore();
+        cout<<"enter a temperature between 95 and 106 degrees"<<endl;
+          cin>>t;
+      try {
+         stod(t);
+        }
+        catch (invalid_argument) {
+            
+          cout << "please enter a valid temperature" << endl;
+          isvalid=false;
+        } 
+        
+     isvalid=true;
+     a.temperature=stod(t);
+     cin.ignore();
+        
+        
+    }
+    patients.push_back(a);
+   
+   
+
+    }
+
+/*
+bool isvalid=false;
+bool isnum=false;
+bool loop=false;
+while(!loop){
+
+
+    while(!isvalid) {
+        string name;
+        cout << "enter the name of the patient ('exit' when done): " << endl;
+        getline(cin, name);
+        if (name == "exit") {
+          cout << "The following patients that can attend are"<<endl;
+          for (int i = 0; i < names.size(); i++) {
+            cout << upperCase(names[i]) << endl;
+
+          }
+          break;
+        } else {
+          names.push_back(name);
+          isvalid = true;
+          isnum=false;
+        }
+        
+    }
+    
+
+      float te;
+     
+      while (!isnum) {
+          isnum=false;
+        string temp;
+
+        cout << "please enter a temperature between 95 and 106 degrees(Otherwise type exit twice): " << endl;
+        cin >> temp;
+        if (temp == "exit") {
+          break;
+        
+        }
+     
+          temps.push_back(te);
+         
+         
+        
+        }
+        
+          isnum=true;
+      
+      }
+     
+          isvalid=false;
+}
+*/
+      return 0;
+
+    }
