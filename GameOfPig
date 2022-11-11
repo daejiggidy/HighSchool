@@ -1,0 +1,133 @@
+#include "util.h"
+
+string input;
+//turn counter
+int turn=0;
+int machturn=0;
+int points=0;
+
+
+int overall=0;
+
+int machinesc=0;
+
+int machineove=0;
+
+
+
+bool will;
+
+string mach;
+   
+bool gamerunning=true;
+bool compplaying=true;
+bool playersturn=true;
+int main()
+{
+    while(gamerunning){
+ while(playersturn){
+    
+    cout<< "Turn "<<turn<<endl;
+    cout<<"This round you have: "<<points<<" points with an overall score of "<<overall<<endl;
+     cout<<"Would you like to [r]oll or [b]ank? "<<endl;
+    cin>>input;
+    if(input=="r"){
+        int r = randInt(1,6);
+        cout<<"You rolled a "<<r<<endl<<endl<<endl<<endl<<endl;
+        if(r>=2){
+            points+=r;
+        }
+        else{
+            cout<<"Sorry you rolled a 1 your turn is up and points are 0. "<<endl<<endl<<endl;
+            points=0;
+            turn+=1;
+            playersturn=false;
+            compplaying=true;
+        }
+        
+    }
+    else if(input=="b"){
+        overall+=points;
+        points=0;
+        turn+=1;
+        playersturn=false;
+        compplaying=true;
+    }
+}
+    
+    
+    if(overall>=100){
+    
+    cout<<endl<<endl<<endl<<endl<<endl<<"WOOOHOOOOOOOOOOOO YOU WIN!!!!!!!!!!!!!!!"<<endl;
+    cout<<"AND IT ONLY TOOK YOU "<<turn<<" TURNS!!!!!!"<<endl;
+
+    gamerunning=false;
+}
+
+
+
+
+    //computer playing
+    while(compplaying){
+    cout<<"M a c h i n e turn: "<<machturn<<endl;
+    cout<<"The M a c h i n e's round score is: "<<machinesc<<endl;
+   cout<<"M a c h i n e overall score is: "<<machineove<<endl<<endl;
+    
+    if(machinesc<=15){
+        will=true;
+        mach="roll";
+        cout<<"The M a c h i n e chooses to " <<mach<<endl;
+        int c= randInt(1,6);
+        
+            if(c>=2){
+        machinesc+=c;
+        cout<<"The machine rolls a "<<c<<endl<<endl;
+             }
+     else{
+       cout<<"M a c h i n e rolled a 1 it's your turn"<<endl<<endl<<endl;
+        machturn+=1;
+        machinesc=0;
+        playersturn=true;
+        compplaying=false;
+         }
+    }
+    else{
+        will=false;
+        mach="bank";
+        machineove+=machinesc;
+        machinesc=0;
+        machturn+=1;
+        playersturn=true;
+        compplaying=false;
+        cout<<"The M a c h i n e chooses to " <<mach<<endl;
+    }
+    
+    
+    
+
+    
+
+    
+        
+    }
+    if(machineove>=100){
+        cout<<endl<<endl<<endl<<endl<<"M a c h i n e wins within "<<machturn<<" turns"<<endl;
+        cout<<"You Lose.";
+        gamerunning=false;
+    }
+    
+    
+     
+     
+
+    
+
+
+    
+    
+
+}
+
+    
+    return 0;
+}
