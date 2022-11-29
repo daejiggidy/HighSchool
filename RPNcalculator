@@ -1,0 +1,67 @@
+#include "util.h"
+#include <vector>
+#include <stack>
+#include <sstream>
+bool runs=true;
+stack <int> nums;
+string user;
+int number;
+bool isOperation(const string& user);//func prototype
+void doOperation(const string& user,stack<int> numbers);
+int main()
+{  while(runs==true){
+        cout<<"<";
+        cin>>user;
+        if(istringstream(user)>>number){
+            nums.push(number);
+        }else if(isOperation(user)){
+            doOperation(user,nums);
+        }else if(user=="exit"){
+            break;
+        }
+        else{
+            cout<<"invalid input"<<endl;
+        }
+        
+    
+}//end of while
+    return 0;
+}
+
+bool isOperation(const string& user){
+    vector <string> ops {"*","-","/","+"};
+    for(int i =0; i<ops.size();i++){
+        if(user==ops[i]){
+            return true;
+        }
+    }
+    return false;
+  
+    
+}
+
+void doOperation(const string& user, stack<int> nums){
+    int lval,rval,result;
+    rval = nums.top();
+    nums.pop();
+    lval = nums.top();
+    nums.pop();
+    
+    if(user=="-"){
+        result=lval - rval;
+    }
+    
+    else if(user=="+"){
+         result=lval + rval;
+    }
+    
+     else if(user=="*"){
+         result=lval * rval;
+    }
+    
+     else if(user=="/"){
+        result=lval * rval;
+    }
+    cout<<result<<endl;
+    nums.push(result);
+}
